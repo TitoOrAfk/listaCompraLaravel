@@ -49,8 +49,6 @@ class ProductoController extends Controller
         return view('productos.create');
     }
 
-
-
     public function postCreate(Request $request){
 
         $producto = new Producto();
