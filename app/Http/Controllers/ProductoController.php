@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class ProductoController extends Controller
 {
 
+    //Index
     public function getIndex()
     {
         $productos = Producto::get();
@@ -16,12 +17,14 @@ class ProductoController extends Controller
         return view('productos.index', ['productos' => $productos]);
     }
 
+    //Show
     public function getShow($id)
     {
         $producto = Producto::findOrFail($id);
         return view('productos.show', ['producto' => $producto, 'id' => $id]);
     }
 
+    //Edit
     public function getEdit($id)
     {
         $producto = Producto::findOrFail($id);
@@ -44,6 +47,7 @@ class ProductoController extends Controller
         return redirect('/productos/show/'.$id);
     }
 
+    //Create
     public function getCreate()
     {
         return view('productos.create');
